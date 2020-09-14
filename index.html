@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipamient WC</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/70d0dd53e0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
+  </head>
+  <body>
+    <!-- NavBar -->
+    <nav class="navbar">
+      <div class="navbar-center">
+        <span class="nav-icon">
+          <div id="ex1" class="modal">
+            <h2>Estimado cliente:</h2>
+            <br />
+            <h3>
+              Equipamiento WC es una empresa rosarina con más de 30 años
+              trabajando codo a codo con las empresas, industrias y hogares de
+              la zona santafesina, suministramos equipamientos de primera mano y
+              de industria nacional para suplir las necesidades de equipamiento
+              de oficina como así tambien de ahorro ecologico.
+              <br />
+              <br />
+              Tel: XXX-XXX-XXX
+            </h3>
+          </div>
+          <a href="#ex1" rel="modal:open"
+            ><i class="fas fa-question info-icon"></i
+          ></a>
+        </span>
+        <h1>Equipamiento WC</h1>
+        <div class="carro-btn">
+          <span class="nav-icon">
+            <i class="fas fa-cart-plus"></i>
+          </span>
+          <div class="carro-objetos">0</div>
+        </div>
+      </div>
+    </nav>
+    <!-- Fin de NavBar -->
+
+    <!-- Header -->
+    <header>
+      <div class="banner">
+        <h1 class="banner-titulo">Equipamiento para oficina</h1>
+        <button class="banner-btn">Ir a la tienda</button>
+      </div>
+    </header>
+    <!-- Fin de Header -->
+
+    <!-- Productos -->
+    <section class="productos" id="productos">
+      <div class="section-titulo">
+        <h2>Nuestros productos</h2>
+      </div>
+      <div class="productos-centrar">
+        <article class="productos">
+          <div class="img-container">
+            <img
+              src="./images/producto-1.jpg"
+              alt="Producto"
+              class="product-img"
+            />
+            <button class="bag-btn" data-id="1">
+              <i class="fas fa-shopping-cart">Agregar al carro</i>
+            </button>
+          </div>
+          <h3>Modular doble</h3>
+          <h4>25.000</h4>
+        </article>
+      </div>
+    </section>
+    <!-- Fin de Productos -->
+    <!-- Inicio de carro de compras -->
+    <div class="carro-superpuesto">
+      <div class="carro">
+        <span class="cerrar-carro">
+          <i class="fas fa-window-close"></i>
+        </span>
+        <h2>Tu carro de compras</h2>
+        <div class="contenedor-carro">
+          <!-- Inicio items del carro -->
+          <div class="item-carro">
+            <img src="./images/producto-1.jpg" alt="Producto" />
+            <div>
+              <h4>Modular doble</h4>
+              <h5>25.000</h5>
+              <span class="eliminar-item">Eliminar</span>
+            </div>
+            <div>
+              <i class="fas fa-chevron-up"></i>
+              <p class="cantidad-producto">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <!-- Fin items del carro -->
+        </div>
+        <div class="carro-footer">
+          <h3>total : $ <span class="carro-total">25.000</span></h3>
+          <button class="limpiar-carro banner-btn">Limpiar carro</button>
+        </div>
+      </div>
+    </div>
+    <!-- Fin de carro de compras -->
+    <script src="app.js"></script>
+  </body>
+</html>
