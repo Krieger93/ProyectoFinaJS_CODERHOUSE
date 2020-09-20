@@ -122,7 +122,7 @@ header {
   position: relative;
   overflow: hidden;
 }
-.bag-btn {
+.boton-Acarro {
   position: absolute;
   top: 70%;
   right: 0;
@@ -136,13 +136,13 @@ header {
   transform: translateX(101%);
   cursor: pointer;
 }
-.bag-btn:hover {
+.boton-Acarro:hover {
   color: var(--colorBlanco);
 }
 .fa-shopping-cart {
   margin-right: 0.5rem;
 }
-.img-container:hover .bag-btn {
+.img-container:hover .boton-Acarro {
   transform: translateX(0);
 }
 .product-img {

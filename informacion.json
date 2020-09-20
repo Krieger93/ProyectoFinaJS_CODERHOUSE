@@ -4,39 +4,37 @@
       "id": "1",
       "titulo": "Modular doble color blanco + sillas para computadora",
       "precio": 30000,
-      "image": {
-        "url": "./images/producto01.jpg"
-      }
+      "imagen": "./images/producto01.jpg"
     },
     {
       "id": "2",
       "titulo": "Modular doble color negro + sillas para computadora",
       "precio": 20000,
-      "url": "./images/producto02.jpg"
+      "imagen": "./images/producto02.jpg"
     },
     {
       "id": "3",
       "titulo": "Modulares divisibles escalonados blanco y amarillo(X3)",
       "precio": 40000,
-      "url": "./images/producto03.jpg"
+      "imagen": "./images/producto03.jpg"
     },
     {
       "id": "4",
       "titulo": "Modulares divisibles alineados color madera laminado + sillas para computadora",
       "precio": 42000,
-      "url": "./images/producto04.jpg"
+      "imagen": "./images/producto04.jpg"
     },
     {
       "id": "5",
       "titulo": "Escritorio moderno oficina de dos cuerpos funcionales + silla para computadora",
       "precio": 100000,
-      "url": "./images/producto05.jpg"
+      "imagen": "./images/producto05.jpg"
     },
     {
       "id": "6",
-      "titulo": "Escritorio moderno oficina de 3 cuerpos funcionales para uso individual o multiple + silla de computadora + sillas fijas",
+      "titulo": "Escritorio moderno oficina de 3 cuerpos funcionales para uso individual o multiple + silla de computadora + sillas",
       "precio": 65000,
-      "url": "./images/producto06.jpg"
+      "imagen": "./images/producto06.jpg"
     }
   ]
 }
