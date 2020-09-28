@@ -1,6 +1,4 @@
 //VARIABLES
-const btnCarro = $(".carro-btn"); //Boton del carro (lo despliega)
-const btnCerrarCarro = $(".cerrar-carro"); //Boton para cerrar el carro
 const btnLimpiarCarro = $(".limpiar-carro"); //boton para limpiar todos los items del carro
 const contenedorCarro = $(".contenedor-carro"); //contenedor de los objetos agregados al carro
 const itemCarro = $(".carro-objetos"); //Items del carro
@@ -52,7 +50,7 @@ class interfaz {
       let id = boton.dataset.id;
       let inCarro = carro.find((item) => item.id === id);
       if (inCarro) {
-        boton.innerText("Item agregado");
+        boton.innerText = "Item agregado";
         $(boton).prop("disabled", true);
       }
       boton.addEventListener("click", (evento) => {
@@ -97,11 +95,22 @@ class interfaz {
               <i class="fas fa-chevron-down" data-id=${item.id}></i>
             </div>
   `;
-    $(".item-carro").html(incorporar);
+    $(".item-carro").append(incorporar);
   }
   mostrarCarro() {
     $(".carro-superpuesto").addClass("fondoTransparente");
     $(".carro").addClass("mostrarCarro");
+  }
+
+  setupAPP() {
+    carro = storage.obtenerCarro();
+    this.setValorCarro(carro);
+    $(".carro-btn").click(this.mostrarCarro);
+    $(".cerrar-carro").click(this.cerrarCarro);
+  }
+  cerrarCarro() {
+    $(".carro-superpuesto").removeClass("fondoTransparente");
+    $(".carro").removeClass("mostrarCarro");
   }
 }
 
@@ -118,11 +127,17 @@ class storage {
   static guardarCarro(carro) {
     localStorage.setItem("carro", JSON.stringify(carro));
   }
+  static obtenerCarro() {
+    return localStorage.getItem("carro")
+      ? JSON.parse(localStorage.getItem("carro"))
+      : [];
+  }
 }
 
 $(document).ready(() => {
   const Interfaz = new interfaz();
   const Productos = new productos();
+  Interfaz.setupAPP();
   //Obtener todos los productos
   Productos.obtenerProductos()
     .then((Productos) => {
