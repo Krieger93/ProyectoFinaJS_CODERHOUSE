@@ -19,6 +19,10 @@ body {
   font-family: "Lato", sans-serif;
 }
 /* --------------- Navbar ---------------- */
+#ban {
+  text-decoration: none;
+  color: black;
+}
 .navbar {
   position: sticky;
   top: 0;
