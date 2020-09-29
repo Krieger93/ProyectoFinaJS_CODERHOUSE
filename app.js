@@ -105,12 +105,39 @@ class interfaz {
   setupAPP() {
     carro = storage.obtenerCarro();
     this.setValorCarro(carro);
+    this.llenarCarro(carro);
     $(".carro-btn").click(this.mostrarCarro);
     $(".cerrar-carro").click(this.cerrarCarro);
+  }
+  llenarCarro(carro) {
+    carro.forEach((item) => this.addItemsCarro(item));
   }
   cerrarCarro() {
     $(".carro-superpuesto").removeClass("fondoTransparente");
     $(".carro").removeClass("mostrarCarro");
+  }
+
+  logicaCarro() {
+    $(".limpiar-carro").click(() => this.limpiarCarro());
+  }
+  limpiarCarro() {
+    let itemsCarro = carro.map((item) => item.id);
+    itemsCarro.forEach((id) => this.eliminarItem(id));
+    while ($(".contenedor-carro").children().length > 0) {
+      $(".contenedor-carro").children().remove();
+    }
+    this.cerrarCarro();
+  }
+  eliminarItem(id) {
+    carro = carro.filter((item) => item.id !== id);
+    this.setValorCarro(carro);
+    storage.guardarCarro(carro);
+    let boton = this.traerbotonesInd(id);
+    $(boton).prop("disabled", false);
+    boton.innerHTML = `<i class="fas fa-shopping-cart"></i>Agregar al carro`;
+  }
+  traerbotonesInd(id) {
+    return botonesDOM.find((boton) => boton.dataset.id === id);
   }
 }
 
@@ -146,5 +173,6 @@ $(document).ready(() => {
     })
     .then(() => {
       Interfaz.traerBotones();
+      Interfaz.logicaCarro();
     });
 });
