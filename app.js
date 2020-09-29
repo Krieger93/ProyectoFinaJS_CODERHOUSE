@@ -1,9 +1,4 @@
 //VARIABLES
-const btnLimpiarCarro = $(".limpiar-carro"); //boton para limpiar todos los items del carro
-const contenedorCarro = $(".contenedor-carro"); //contenedor de los objetos agregados al carro
-const itemCarro = $(".carro-objetos"); //Items del carro
-const totalCarro = $(".carro-total"); //SPAN + H3 con el valor final de los objetos agregados al carro
-const productosCentrarDOM = $(".productos-centrar"); //contenedor para cada uno de los productos
 let carro = []; //Productos agregados al carro de compras
 let botonesDOM = []; //Botones de productos
 
@@ -119,6 +114,34 @@ class interfaz {
 
   logicaCarro() {
     $(".limpiar-carro").click(() => this.limpiarCarro());
+    $(".contenedor-carro").click((evento) => {
+      if (evento.target.classList.contains("eliminar-item")) {
+        let eliminarObjeto = evento.target;
+        let id = eliminarObjeto.dataset.id;
+        this.eliminarItem(id);
+        location.reload();
+      } else if (evento.target.classList.contains("fa-chevron-up")) {
+        let agregarUno = evento.target;
+        let id = agregarUno.dataset.id;
+        let tempItem = carro.find((item) => item.id === id);
+        tempItem.cantidad = tempItem.cantidad + 1;
+        storage.guardarCarro(carro);
+        this.setValorCarro(carro);
+        agregarUno.nextElementSibling.innerText = tempItem.cantidad;
+      } else if (evento.target.classList.contains("fa-chevron-down")) {
+        let quitarUno = evento.target;
+        let id = quitarUno.dataset.id;
+        let tempItem = carro.find((item) => item.id === id);
+        tempItem.cantidad = tempItem.cantidad - 1;
+        if (tempItem.cantidad < 1) {
+          alert("no puede tener un valor de 0 items");
+        } else {
+          storage.guardarCarro(carro);
+          this.setValorCarro(carro);
+          quitarUno.previousElementSibling.innerText = tempItem.cantidad;
+        }
+      }
+    });
   }
   limpiarCarro() {
     let itemsCarro = carro.map((item) => item.id);
@@ -126,7 +149,7 @@ class interfaz {
     while ($(".contenedor-carro").children().length > 0) {
       $(".contenedor-carro").children().remove();
     }
-    this.cerrarCarro();
+    location.reload();
   }
   eliminarItem(id) {
     carro = carro.filter((item) => item.id !== id);
